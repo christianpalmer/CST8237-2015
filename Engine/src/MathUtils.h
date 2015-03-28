@@ -1,5 +1,15 @@
 #pragma once
 
+enum Direction { LEFT = 0, RIGHT, UP, DOWN };
+#define CHAR_HEIGHT 1
+#define ENEMY_SPEED 1.5
+#define MAX_ENEMIES 1000
+#define startX 0
+#define startY 2
+#define startZ 0
+#define SPAWN_TIME 1.4
+
+
 // A structure to hold two floats. Similar to SDL_Point (though it contains ints).
 struct Vector2
 {
@@ -31,6 +41,7 @@ struct Vector3 : public Vector2
   static Vector3 Difference(Vector3 first, Vector3 second);
   static Vector3 Normalize(Vector3 toNormalize);
   static float Magnitude(Vector3 toMagnitude);
+
 };
 
 struct Vector4 : public Vector3
@@ -77,4 +88,8 @@ class MathUtils
 public:
   static float ToRadians(float degrees);
   static float ToDegrees(float radians);
+  static int Factorial(int n)
+  {
+	  return (n == 1 || n == 0) ? 1 : Factorial(n - 1) * n;
+  };
 };

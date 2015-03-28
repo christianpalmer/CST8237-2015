@@ -5,6 +5,7 @@
 #include "Graphics.h"
 #include "GraphicsOpenGL.h"
 #include <SDL_opengl.h>
+#include <SDL_mixer.h>
 
 GameEngine::GameEngine()
 {
@@ -41,6 +42,7 @@ void GameEngine::Initialize()
 
 void GameEngine::Shutdown()
 {
+	_running = false;
   /* Stop the engine timer as we're shutting down. */
   _engineTimer.Stop();
 

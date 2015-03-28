@@ -11,3 +11,4 @@ float MathUtils::ToRadians(float degrees)
   float degreesToRadians = 3.1415926535f / 180.0f;
   return degrees * degreesToRadians;
 }
+

@@ -28,19 +28,21 @@ Cube::Cube(Vector3 position)
 void Cube::Initialize(Graphics *graphics)
 {
   size = 0;
+  isVisited = false;
 
   //vertices = new Vertex[8]();
   vertices = new Vector3[8]();
   colours = new Vector4[8]();
 
-  SetVertex(0, /*pos*/-0.5f, 0.5f, 0.5f,  /*color*/ 1.0f, 0.0f, 0.0f, 1.0f);
-  SetVertex(1, /*pos*/0.5f, 0.5f, 0.5f,   /*color*/ 1.0f, 1.0f, 0.0f, 1.0f);
-  SetVertex(2, /*pos*/-0.5f, -0.5f, 0.5f, /*color*/ 1.0f, 0.0f, 1.0f, 1.0f);
-  SetVertex(3, /*pos*/0.5f, -0.5f, 0.5f,  /*color*/ 0.0f, 1.0f, 0.0f, 1.0f);
-  SetVertex(4, /*pos*/-0.5f, 0.5f, -0.5f, /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
-  SetVertex(5, /*pos*/0.5f, 0.5f, -0.5f,  /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
-  SetVertex(6, /*pos*/-0.5f, -0.5f, -0.5f,/*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
-  SetVertex(7, /*pos*/0.5f, -0.5f, -0.5f, /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
+  SetVertex(0, /*pos*/-0.5f, 0.5f, 0.5f,  /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
+  SetVertex(1, /*pos*/0.5f, 0.5f, 0.5f,   /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
+  SetVertex(2, /*pos*/-0.5f, -0.5f, 0.5f, /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
+  SetVertex(3, /*pos*/0.5f, -0.5f, 0.5f,  /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
+  SetVertex(4, /*pos*/-0.5f, 0.5f, -0.5f, /*color*/ 0.0f, 1.0f, 1.0f, 0.7f);
+  SetVertex(5, /*pos*/0.5f, 0.5f, -0.5f,  /*color*/ 0.0f, 1.0f, 1.0f, 0.7f);
+  SetVertex(6, /*pos*/-0.5f, -0.5f, -0.5f,/*color*/ 0.0f, 1.0f, 1.0f, 0.7f);
+  SetVertex(7, /*pos*/0.5f, -0.5f, -0.5f, /*color*/ 0.0f, 1.0f, 1.0f, 0.7f);
+
 
   indices = new unsigned int[30];
 
@@ -104,6 +106,19 @@ void Cube::Initialize(Graphics *graphics)
 
 void Cube::Update(float dt)
 {
+}
+
+void Cube::ChangeColor()
+{
+	isVisited = true;
+	for (int index = 0; index < 4; index++)
+	{
+		colours[index].x = 0.4f;
+		colours[index].y = 0.2f;
+		colours[index].z = 0.3f;
+		colours[index].w = 0.3f;
+	}
+	
 }
 
 void Cube::Draw(Graphics *graphics, Matrix4x4 relativeTo, float dt)
